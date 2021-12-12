@@ -13,10 +13,10 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Bot extends TelegramLongPollingBot {
+public class Bot$_04 extends TelegramLongPollingBot {
 
     // adding logger to log something instead of using println()
-    private static Logger log = Logger.getLogger(Bot.class.getName());
+    private static Logger log = Logger.getLogger(Bot$_04.class.getName());
 
     ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
 

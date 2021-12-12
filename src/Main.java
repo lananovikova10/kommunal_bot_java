@@ -1,4 +1,4 @@
-import Bot.Bot;
+import Bot.Bot$_04;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
@@ -9,7 +9,7 @@ public class Main {
 
         // register the bot
         try {
-            telegramBotsApi.registerBot(new Bot());
+            telegramBotsApi.registerBot(new Bot$_04());
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
