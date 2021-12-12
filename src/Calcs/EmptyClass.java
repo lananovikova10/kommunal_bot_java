@@ -1,8 +1,8 @@
 package Calcs;
 
-import Data.ForTesting;
+import Data.ForTestingRenamed;
 
-public class EpmtyClass implements ForTesting {
+public class EmptyClass implements ForTestingRenamed {
     @Override
     public Integer numberOfTests() {
         return null;
