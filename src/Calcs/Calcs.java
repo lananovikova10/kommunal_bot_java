@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 public class Calcs implements Data {
 
+    // adding logger to log something instead of using println()
     private static Logger log = Logger.getLogger(Calcs.class.getName());
 
     public String allHistory() {
@@ -22,6 +23,14 @@ public class Calcs implements Data {
         return allHistoryChanges;
     }
 
+    /*
+    calcNew function calculates:
+    — the difference between last values (last line from data.txt file) and mew values
+    sent by user (/new and 4 ints)
+    — the amount to pay for the difference, the sum, and for water and electricity
+    TODO: add ability to verify the values given (the num of values and types and that they are not less then previous)
+    this ^^ is implemented in python-version of the bot
+     */
     public String calcNew(String msg) throws IOException {
 
         log.info("Calculating differences and amount to pay for");
@@ -74,8 +83,8 @@ public class Calcs implements Data {
         return String.valueOf(list);
     }
 
+    // saving data given after "/save" command
     public String saveNewToFile(String msg) throws IOException {
-        // saving data given after "/save" command
         // make ints
         List<Integer> newValuesI = Arrays.stream(msg.split(" "))
                 .skip(msg.startsWith("/save ") ? 1 : 0)

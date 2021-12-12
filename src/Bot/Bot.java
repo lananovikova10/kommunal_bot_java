@@ -15,13 +15,16 @@ import java.util.logging.Logger;
 
 public class Bot extends TelegramLongPollingBot {
 
+    // adding logger to log something instead of using println()
     private static Logger log = Logger.getLogger(Bot.class.getName());
 
     ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
 
+    //to access for calcs functions
     private Calcs calcs;
 
 
+    // waiting for some updates from user in telegram
     @Override
     public void onUpdateReceived(Update update) {
 
@@ -31,11 +34,13 @@ public class Bot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(Long.toString(chat_id));
 
+        // the text from the message
         String text = update.getMessage().getText();
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
 
         log.info("Message from user: " + text);
 
+        // checking what was sent and trying to send something back
         try {
             String textToSend = getMessageFromKeyboard(text);
             sendMsg(String.valueOf(chat_id), textToSend);
@@ -62,6 +67,7 @@ public class Bot extends TelegramLongPollingBot {
         super.onRegister();
     }
 
+    // function to send message from the bot
     public synchronized void sendMsg(String chatId, String msg) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
@@ -70,6 +76,9 @@ public class Bot extends TelegramLongPollingBot {
         execute(sendMessage);
     }
 
+    // initially designed to get values from the bot's keyboard, but also added handling of messages here
+    // for the first implementation
+    // TODO: separate handler for the commands like "/new" or "/save"
     public String getMessageFromKeyboard(String msg) throws InstantiationException, IllegalAccessException,
             IOException {
 
@@ -82,6 +91,7 @@ public class Bot extends TelegramLongPollingBot {
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setOneTimeKeyboard(false);
 
+        // creates a keyboard in telegram with 4 buttons in 2 rows
         if (msg.equals("/start") || msg.equals("Привет") || msg.equals("привет")) {
             keyboard.clear();
             keyboardFirstRow.clear();
@@ -96,6 +106,7 @@ public class Bot extends TelegramLongPollingBot {
             return "Выбирай!";
         }
 
+        // handling some user requests
         if (msg.equals("Последние")) {
             log.info("Last data requested");
             msg = calcs.getLastLine();

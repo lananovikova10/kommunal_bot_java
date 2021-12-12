@@ -9,10 +9,11 @@ import java.util.logging.Logger;
 
 public interface Data {
 
+    // adding logger to log something instead of using println()
     static Logger log = Logger.getLogger(Data.class.getName());
 
     public default String allData() throws IOException {
-        // just read the whole file to string
+        // just read the whole file to string to send via telegram bot
         String allDataValues = new String(Files.readAllBytes(Paths.get("resources/data.txt")));
         return allDataValues;
     }
@@ -20,6 +21,8 @@ public interface Data {
 
     public default String getLastLine() throws IOException {
         // this is to return the last values from the file
+        // using in 2 cases: request from user for last data
+        // in calcNew function to calc difference with new values
         String lastLine = "";
         log.info("Reading the file");
         String currentLIne;
