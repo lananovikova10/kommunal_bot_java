@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class Calcs implements Data {
+public class CalcsRenamed implements Data {
 
     // adding logger to log something instead of using println()
-    private static Logger log = Logger.getLogger(Calcs.class.getName());
+    private static Logger log = Logger.getLogger(CalcsRenamed.class.getName());
 
     public String allHistory() {
         // TODO
@@ -24,7 +24,7 @@ public class Calcs implements Data {
     }
 
     /*
-    calcNew function of Calcs class calculates:
+    calcNew function of CalcsRenamed class calculates:
     — the difference between last values (last line from data.txt file) and mew values
     sent by user (/new and 4 ints)
     — the amount to pay for the difference, the sum, and for water and electricity
@@ -75,7 +75,7 @@ public class Calcs implements Data {
         double s_svet = ((new_t1 - t1) * 5.92) + ((new_t2 - t2) * 1.74);
         double s_voda = ((new_gor - gor) * 205.15) + ((new_hol - hol) * 42.30);
 
-        log.info("Calcs.Calcs: " + sum + ", " + s_svet + ", " + s_voda);
+        log.info("CalcsRenamed.CalcsRenamed: " + sum + ", " + s_svet + ", " + s_voda);
 
         List<Double> list = Arrays.asList(sum, s_svet, s_voda);
         log.info(String.valueOf(list));
