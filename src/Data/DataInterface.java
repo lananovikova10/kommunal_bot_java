@@ -7,10 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
 
-public interface Data {
+public interface DataInterface {
 
     // adding logger to log something instead of using println()
-    static Logger log = Logger.getLogger(Data.class.getName());
+    static Logger log = Logger.getLogger(DataInterface.class.getName());
 
     public default String allData() throws IOException {
         // just read the whole file to string to send via telegram bot

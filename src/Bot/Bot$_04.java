@@ -59,6 +59,8 @@ public class Bot$_04 extends TelegramLongPollingBot {
     @Override
     public String getBotToken() {
         // Return bot token from BotFather
+        // here should be real token provided to use the bot
+        // TODO: read token from config file or env variable
         return "BOT_TOKEN";
     }
 
