@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class CalcsRenamed implements Data {
+public class Calcs implements Data {
 
     // adding logger to log something instead of using println()
-    private static Logger log = Logger.getLogger(CalcsRenamed.class.getName());
+    private static Logger log = Logger.getLogger(Calcs.class.getName());
 
     public String allHistory() {
         // TODO

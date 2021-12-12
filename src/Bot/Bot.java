@@ -1,6 +1,6 @@
 package Bot;
 
-import Calcs.CalcsRenamed;
+import Calcs.Calcs;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -21,7 +21,7 @@ public class Bot extends TelegramLongPollingBot {
     ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
 
     //to access for calcs functions
-    private CalcsRenamed calcs;
+    private Calcs calcs;
 
 
     // waiting for some updates from user in telegram
@@ -82,7 +82,7 @@ public class Bot extends TelegramLongPollingBot {
     public String getMessageFromKeyboard(String msg) throws InstantiationException, IllegalAccessException,
             IOException {
 
-        CalcsRenamed calcs = new CalcsRenamed();
+        Calcs calcs = new Calcs();
         ArrayList<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow keyboardFirstRow = new KeyboardRow();
         KeyboardRow keyboardSecondRow = new KeyboardRow();
