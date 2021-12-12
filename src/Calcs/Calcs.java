@@ -1,42 +1,19 @@
 package Calcs;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import Data.Data;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class Calcs {
+public class Calcs implements Data {
 
     private static Logger log = Logger.getLogger(Calcs.class.getName());
-
-    public String getLastLine() throws IOException {
-        // this is to return the last values from the file
-        String lastLine = "";
-        log.info("Reading the file");
-        String currentLIne;
-
-        // read the file
-        BufferedReader br = new BufferedReader(
-                new FileReader("resources/data.txt"));
-
-        // getting the last line
-        while ((currentLIne = br.readLine()) != null) {
-            lastLine = currentLIne;
-        }
-        log.info("Last line is: " + lastLine);
-
-        return lastLine;
-    }
-
-
-    public String allData() throws IOException {
-        // just read the whole file to string
-        String allDataValues = new String(Files.readAllBytes(Paths.get("resources/data.txt")));
-        return allDataValues;
-    }
 
     public String allHistory() {
         // TODO
