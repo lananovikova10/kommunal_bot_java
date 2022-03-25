@@ -7,10 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
 
-public interface DataInterface {
+public interface DocksEntityDataGenerator {
 
-    // adding logger to log something instead of using println()
-    static Logger log = Logger.getLogger(DataInterface.class.getName());
+    // adding logger to DocksEntityDataGenerator to log something instead of using println()
+    static Logger log = Logger.getLogger(DocksEntityDataGenerator.class.getName());
 
     public default String allData() throws IOException {
         // just read the whole file to string to send via telegram bot
@@ -23,20 +23,23 @@ public interface DataInterface {
         // this is to return the last values from the file
         // using in 2 cases: request from user for last data
         // in calcNew function to calc difference with new values
-        String lastLine = "";
+        String lastLines = "";
         log.info("Reading the file");
         String currentLIne;
+        String entitiesIds = "";
 
-        // read the file
+        // reads the file
         BufferedReader br = new BufferedReader(
                 new FileReader("resources/data.txt"));
 
         // getting the last line
         while ((currentLIne = br.readLine()) != null) {
-            lastLine = currentLIne;
+            lastLines = currentLIne;
         }
+        String lastLine;
         log.info("Last line is: " + lastLine);
 
         return lastLine;
+        return entitiesIds;
     }
 }

@@ -1,6 +1,6 @@
 package Calcs;
 
-import Data.DataInterface;
+import Data.DocksEntityDataGenerator;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class Calcs implements DataInterface {
+public class Calcs implements DocksEntityDataGenerator {
 
     // adding logger to log something instead of using println()
     private static Logger log = Logger.getLogger(Calcs.class.getName());
