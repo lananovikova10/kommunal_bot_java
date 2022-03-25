@@ -1,6 +1,6 @@
 package Data;
 
-public interface ForTestingRenamed {
+public interface ForTestingRename {
 
     Integer numberOfTests();
 
